@@ -1,19 +1,36 @@
-import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addServerHandler, addImports, addComponentsDir } from '@nuxt/kit'
 
-// Module options TypeScript interface definition
-export interface ModuleOptions {}
-
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
   meta: {
-    name: 'my-module',
-    configKey: 'myModule',
+    name: 'civicrm',
+    configKey: 'civicrm',
   },
   // Default configuration options of the Nuxt module
   defaults: {},
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve('./runtime/plugin'))
+    addImports({
+      name: 'useCivi',
+      as: 'useCivi',
+      from: resolver.resolve('runtime/composables/useCivi'), // path of composable
+    })
+
+    addServerHandler({
+      route: '/api/civicrm',
+      handler: resolver.resolve('./runtime/server/api/civicrm.post'),
+    })
+    addServerHandler({
+      route: '/api/civicrm/login',
+      handler: resolver.resolve('./runtime/server/api/civicrm/login.post'),
+    })
+    addServerHandler({
+      route: '/api/civicrm/logout',
+      handler: resolver.resolve('./runtime/server/api/civicrm/logout.post'),
+    })
+
+    addComponentsDir({
+      path: resolver.resolve('runtime/components'),
+    })
   },
 })
