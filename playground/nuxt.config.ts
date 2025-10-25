@@ -1,5 +1,9 @@
 export default defineNuxtConfig({
   modules: ['../src/module'],
-  myModule: {},
   devtools: { enabled: true },
+  runtimeConfig: {
+    civicrm: {
+      url: 'http://nuxt.localhost:7890',
+    },
+  },
 })
