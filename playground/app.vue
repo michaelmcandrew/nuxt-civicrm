@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { data } = await useCivi().api('Contact', 'get', { limit: 10 })
+const { api, user } = useCivi()
+const { data } = await api('Contact', 'get', { limit: 10 })
 </script>
 
 <template>
@@ -10,12 +11,14 @@ const { data } = await useCivi().api('Contact', 'get', { limit: 10 })
       </h1>
       <CiviLogin />
     </header>
-    <p>This is a very simple example that shows 10 contacts from CiviCRM.</p>
+    <p>
+      This is a very simple example that shows 10 contacts from CiviCRM.
+      <template v-if="!user">
+        You need to log in to see the contacts.
+      </template>
+    </p>
     <div v-if="data">
-      <div
-        v-for="contact in data.values"
-        :key="contact.id"
-      >
+      <div v-for="contact in data.values" :key="contact.id">
         {{ contact.display_name }}
       </div>
     </div>
