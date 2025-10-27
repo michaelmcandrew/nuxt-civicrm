@@ -1,6 +1,6 @@
 # Nuxt CiviCRM integration
 
-**Nuxt CiviCRM** is a Nuxt [module](https://nuxt.com/modules) that connects a [Nuxt](https://nuxt.com/) web application to a [CiviCRM](https://civicrm.org/) site. You can authenticate as a CiviCRM user and perform any API actions available to that user.
+A Nuxt [module](https://nuxt.com/modules) that connects a [Nuxt](https://nuxt.com/) web application to a [CiviCRM](https://civicrm.org/) site. You can authenticate as a CiviCRM user and perform any API actions available to that user.
 
 Nuxt CiviCRM is an early proof of concept and not yet ready for production - ***use at your own risk!***
 
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
 
 Add the URL of your CiviCRM site to the Nuxt runtime config.
 
-**Tip:** you can use [CiviCRM Buildkit Docker](https://lab.civicrm.org/michaelmcandrew/civicrm-buildkit-docker) to quickly create a  CiviCRM development environment if you don't already have one.
+**Tip:** you can use [CiviCRM Buildkit Docker](https://lab.civicrm.org/michaelmcandrew/civicrm-buildkit-docker) to quickly create a CiviCRM development environment if you don't already have one.
 
 ```ts
 // nuxt.config.ts 
