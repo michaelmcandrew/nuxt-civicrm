@@ -18,7 +18,10 @@ const { data } = await api('Contact', 'get', { limit: 10 })
       You need to log in to see the contacts.
     </p>
     <div v-if="data">
-      <div v-for="contact in data.values" :key="contact.id">
+      <div
+        v-for="contact in data.values"
+        :key="contact.id"
+      >
         {{ contact.display_name }}
       </div>
     </div>
