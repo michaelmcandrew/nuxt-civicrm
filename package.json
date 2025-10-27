@@ -2,7 +2,13 @@
   "name": "nuxt-civicrm",
   "version": "0.0.2",
   "description": "A Nuxt module that connects a Nuxt web application to a CiviCRM site via CiviCRM's REST API.",
-  "license": "MIT",
+  "keywords": [
+    "crm",
+    "civicrm",
+    "nuxt",
+    "nuxt-module"
+  ],
+  "license": "AGPL-3.0-only",
   "type": "module",
   "exports": {
     ".": {
