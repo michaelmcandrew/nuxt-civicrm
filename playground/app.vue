@@ -26,7 +26,14 @@ const { data } = await api('Contact', 'get', { limit: 10 })
 </template>
 
 <style>
+@import '@fontsource-variable/figtree';
+
+* {
+  font-family: 'Figtree variable';
+}
+
 header {
+  border-bottom: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;

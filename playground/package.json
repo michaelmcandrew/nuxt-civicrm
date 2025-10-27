@@ -8,6 +8,7 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
+    "@fontsource-variable/figtree": "^5.2.10",
     "nuxt": "^4.1.3"
   }
 }
