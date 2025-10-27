@@ -3,6 +3,12 @@ import { ref } from '#imports'
 import { useCivi } from '../composables/useCivi'
 
 const { user, login, logout } = useCivi()
+
+async function doLogin() {
+  await login(username.value, password.value)
+  username.value = ''
+  password.value = ''
+}
 const username = ref('')
 const password = ref('')
 </script>
@@ -11,7 +17,7 @@ const password = ref('')
   <div class="login">
     <form
       v-if="!user"
-      @submit.prevent="login(username, password)"
+      @submit.prevent="doLogin()"
     >
       <input
         v-model="username"
