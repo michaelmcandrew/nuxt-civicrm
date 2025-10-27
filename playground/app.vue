@@ -13,9 +13,9 @@ const { data } = await api('Contact', 'get', { limit: 10 })
     </header>
     <p>
       This is a very simple example that shows 10 contacts from CiviCRM.
-      <template v-if="!user">
-        You need to log in to see the contacts.
-      </template>
+    </p>
+    <p v-if="!user">
+      You need to log in to see the contacts.
     </p>
     <div v-if="data">
       <div v-for="contact in data.values" :key="contact.id">
