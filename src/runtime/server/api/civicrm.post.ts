@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
   const response = await $fetch<ApiResult>(url, {
     headers: {
       cookie,
+      'X-Requested-With':'XMLHttpRequest'
     },
     method: 'post',
     query: { params },
