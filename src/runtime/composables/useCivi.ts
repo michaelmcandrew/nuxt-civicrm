@@ -1,3 +1,5 @@
+import { useFetch, refreshNuxtData } from '#imports'
+
 // Call CiviCRM's REST API.
 async function api(entity: string, action: string, params: object) {
   return await useFetch('/api/civicrm', {
