@@ -23,8 +23,11 @@ export default defineEventHandler<Promise<boolean>>(async (event) => {
     // Store the retrieved cookie in the user's browser.
     const cookieHeader = response.headers.get('set-cookie')
     if (cookieHeader) {
-      setCookie(event, 'civicrm', cookieHeader.split(';')[0])
-      return true
+      const start = cookieHeader.split(';')[0]
+      if (start) {
+        setCookie(event, 'civicrm', start)
+        return true
+      }
     }
     return false
   }
