@@ -34,3 +34,11 @@ export default defineNuxtModule({
     })
   },
 })
+
+declare module '@nuxt/schema' {
+  interface RuntimeConfig {
+    civicrm: {
+      url: string
+    }
+  }
+}
