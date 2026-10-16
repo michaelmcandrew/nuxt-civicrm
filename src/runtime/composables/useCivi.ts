@@ -35,8 +35,18 @@ export function useCivi() {
         limit: 1,
       },
     },
-    transform: (result: { values: object[] }) => result.values[0] ?? null,
+    transform: (result: ApiResult<Contact>) => result.values[0] ?? null,
   })
 
   return { api, login, logout, user }
+}
+
+interface ApiResult<Entity> {
+  values: Entity[]
+}
+
+// Hard coded for now.
+interface Contact {
+  id: number
+  display_name: string
 }
