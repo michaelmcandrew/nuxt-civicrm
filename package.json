@@ -52,5 +52,8 @@
     "typescript": "~5.9.3",
     "vitest": "^3.2.7",
     "vue-tsc": "^3.3.13"
+  },
+  "dependencies": {
+    "nuxt-civicrm": "^0.0.3"
   }
 }
