@@ -20,10 +20,12 @@ export default defineEventHandler<Promise<boolean>>(async (event) => {
       method: 'POST',
       body,
     })
-    // Store the retrieved cookie in the user's browser.
-    const cookieHeader = response.headers.get('set-cookie')
-    if (cookieHeader) {
-      const start = cookieHeader.split(';')[0]
+    // Store the authenticated cookie in the user's browser. Civi appears to
+    // send multiple cookies. Assume the last is the authenticated cookie and
+    // save that.
+    const cookie = response.headers.getSetCookie().at(-1)
+    if (cookie) {
+      const start = cookie.split(';')[0]
       if (start) {
         setCookie(event, 'civicrm', start)
         return true
