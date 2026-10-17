@@ -18,14 +18,17 @@ export default defineNuxtModule({
 
     addServerHandler({
       route: '/api/civicrm',
+      method: 'POST',
       handler: resolver.resolve('./runtime/server/api/civicrm.post'),
     })
     addServerHandler({
       route: '/api/civicrm/login',
+      method: 'POST',
       handler: resolver.resolve('./runtime/server/api/civicrm/login.post'),
     })
     addServerHandler({
       route: '/api/civicrm/logout',
+      method: 'POST',
       handler: resolver.resolve('./runtime/server/api/civicrm/logout.post'),
     })
 
