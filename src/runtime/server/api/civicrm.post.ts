@@ -1,6 +1,7 @@
 import { useRuntimeConfig } from '#imports'
 import { defineEventHandler, getCookie, getQuery } from 'h3'
 import { $fetch } from 'ofetch'
+import type { ApiResult } from '~/src/types'
 
 export default defineEventHandler(async (event) => {
   const { entity, action, params } = getQuery(event)
@@ -20,16 +21,3 @@ export default defineEventHandler(async (event) => {
   })
   return response
 })
-
-interface ApiResult {
-  entity: string
-  action: string
-  count: number
-  countFetched?: number
-  values: ApiValue[]
-
-}
-
-interface ApiValue {
-  [key: string]: string | number
-}
