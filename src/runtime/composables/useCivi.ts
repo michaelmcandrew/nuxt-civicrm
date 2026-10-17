@@ -2,7 +2,7 @@ import { useFetch, refreshNuxtData } from '#imports'
 
 // Call CiviCRM's REST API.
 async function api(entity: string, action: string, params: object) {
-  return await useFetch('/api/civicrm', {
+  return await useFetch<ApiResult<GenericEntity>>('/api/civicrm', {
     method: 'post',
     query: { entity, action, params },
   })
@@ -50,3 +50,4 @@ interface Contact {
   id: number
   display_name: string
 }
+type GenericEntity = Record<string, string | number | boolean>
