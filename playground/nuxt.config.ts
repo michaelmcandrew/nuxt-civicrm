@@ -6,4 +6,5 @@ export default defineNuxtConfig({
       url: 'http://nuxt.localhost:7890',
     },
   },
+  compatibilityDate: '2026-10-17',
 })
