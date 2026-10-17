@@ -1,7 +1,7 @@
 // Call CiviCRM's REST API.
 async function api(entity: string, action: string, params: object) {
   return await useFetch<ApiResult>('/api/civicrm', {
-    method: 'post',
+    method: 'POST',
     query: { entity, action, params },
   })
 }
@@ -9,7 +9,7 @@ async function api(entity: string, action: string, params: object) {
 // Login to CiviCRM.
 async function login(username: string, password: string) {
   await $fetch('/api/civicrm/login', {
-    method: 'post',
+    method: 'POST',
     query: { username, password },
   })
   await refreshNuxtData()
@@ -17,7 +17,7 @@ async function login(username: string, password: string) {
 
 // Logout of CiviCRM.
 async function logout() {
-  await $fetch('/api/civicrm/logout', { method: 'post' })
+  await $fetch('/api/civicrm/logout', { method: 'POST' })
   await refreshNuxtData()
 }
 
@@ -26,7 +26,7 @@ export function useCivi() {
   // The authenticated CiviCRM user (or null when logged out).
   const { data: user } = useFetch('/api/civicrm', {
     key: 'civicrm:user',
-    method: 'post',
+    method: 'POST',
     query: {
       entity: 'Contact', action: 'get', params: {
         where: [['id', '=', 'user_contact_id']],
