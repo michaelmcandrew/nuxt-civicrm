@@ -1,5 +1,13 @@
 import { defineNuxtModule, createResolver, addServerHandler, addImports, addComponentsDir } from '@nuxt/kit'
 
+declare module 'nuxt/schema' {
+  interface RuntimeConfig {
+    civicrm: {
+      url: string
+    }
+  }
+}
+
 export default defineNuxtModule({
   meta: {
     name: 'civicrm',
@@ -37,11 +45,3 @@ export default defineNuxtModule({
     })
   },
 })
-
-declare module '@nuxt/schema' {
-  interface RuntimeConfig {
-    civicrm: {
-      url: string
-    }
-  }
-}
