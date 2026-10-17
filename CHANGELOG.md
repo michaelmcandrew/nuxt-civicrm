@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/michaelmcandrew/nuxt-civicrm/compare/v0.0.2...v0.0.5)
+
+### 🚀 Enhancements
+
+- Switch to AGPLv3 license and add keywords ([6675362](https://github.com/michaelmcandrew/nuxt-civicrm/commit/6675362))
+
+### ❤️ Contributors
+
+- Michael McAndrew <michaelmcandrew@thirdsectordesign.org>
+
 ## v0.0.2
 
 [compare changes](https://github.com/michaelmcandrew/nuxt-civicrm/compare/v0.0.1...v0.0.2)
