@@ -1,8 +1,10 @@
+import { useFetch, refreshNuxtData } from '#imports'
+import type { AsyncData, NuxtError } from '#app'
 import type { ApiResult } from '~/src/types'
 
 // Call CiviCRM's REST API.
-async function api(entity: string, action: string, params: object) {
-  return await useFetch<ApiResult>('/api/civicrm', {
+function api(entity: string, action: string, params: object): AsyncData<ApiResult | undefined, NuxtError | undefined> {
+  return useFetch<ApiResult>('/api/civicrm', {
     method: 'POST',
     query: { entity, action, params },
   })
