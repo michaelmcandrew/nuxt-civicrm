@@ -9,8 +9,7 @@ export default defineEventHandler(async (event) => {
   // Construct the REST API endpoint
   const url = `${config.civicrm.url}/civicrm/ajax/api4/${entity}/${action}`
   // Authenticate with the cookie that we stored when we logged into CiviCRM.
-  const cookie = getCookie(event, 'civicrm') ?? ''
-
+  const cookie = getCookie(event, 'nuxt-civicrm') ?? ''
   // Fetch and return the response.
   const response = await $fetch<ApiResult>(url, {
     headers: {

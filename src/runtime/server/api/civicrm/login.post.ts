@@ -25,11 +25,8 @@ export default defineEventHandler<Promise<boolean>>(async (event) => {
     // save that.
     const cookie = response.headers.getSetCookie().at(-1)
     if (cookie) {
-      const start = cookie.split(';')[0]
-      if (start) {
-        setCookie(event, 'civicrm', start)
-        return true
-      }
+      setCookie(event, 'nuxt-civicrm', cookie, { httpOnly: true })
+      return true
     }
     return false
   }
